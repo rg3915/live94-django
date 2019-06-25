@@ -76,6 +76,12 @@ touch myproject/core/management/__init__.py
 touch myproject/core/management/commands/{__init__,import_lives}.py
 ```
 
+O comando criado pode ser rodado com
+
+```
+python manage.py import_lives
+```
+
 ## Filtrando campos calculados
 
 ```
