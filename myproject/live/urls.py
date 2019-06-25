@@ -6,7 +6,8 @@ app_name = 'live'
 
 
 urlpatterns = [
-    path('live/', v.live_list, name='live_list'),
-    path('add/', v.LiveCreateView.as_view(), name='live_add'),
+    path('', v.live_list, name='live_list'),
+    path('<int:pk>/', v.live_detail, name='live_detail'),
+    path('add/', v.LiveCreate.as_view(), name='live_add'),
     path('json/', v.live_json, name='live_json'),
 ]

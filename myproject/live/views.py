@@ -1,29 +1,32 @@
 from django.http import JsonResponse
-from django.urls import reverse_lazy
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from .models import Live
 from .forms import LiveForm
 
 
 def live_list(request):
-    lives = Live.objects.all()
-    context = {'object_list': lives}
     template_name = 'live/live_list.html'
+    object_list = Live.objects.all()
+    context = {'object_list': object_list}
     return render(request, template_name, context)
+
+
+def live_detail(request, pk):
+    template_name = 'live/live_detail.html'
+    return render(request, template_name)
 
 
 def live_add(request):
-    form = LiveForm()
-    context = {'form': form}
     template_name = 'live/live_form.html'
-    return render(request, template_name, context)
+    return render(request, template_name)
 
 
-class LiveCreateView(CreateView):
+class LiveCreate(CreateView):
     model = Live
-    form_class = LiveForm
     template_name = 'live/live_form.html'
+    form_class = LiveForm
     success_url = reverse_lazy('live:live_list')
 
 
