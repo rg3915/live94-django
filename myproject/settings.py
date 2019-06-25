@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Apps de terceiros
     'django_extensions',
+    # Minhas apps
+    'myproject.core',
+    'myproject.live',
 ]
 
 MIDDLEWARE = [
