@@ -107,3 +107,11 @@ len(res)
 
 [djangopackages](https://djangopackages.org/)
 
+[QuerySet API reference](https://docs.djangoproject.com/en/1.11/ref/models/querysets/)
+
+[Como otimizar suas consultas no Django - De N a 1 em 20 minutos](http://pythonclub.com.br/django-introducao-queries.html)
+
+[Visualizando query SQL a partir do ORM Django](https://medium.com/@beatrizuezu/visualizando-query-sql-a-partir-do-orm-django-5771370a9c55)
+
+[Django ORM optimization story on selecting the least possible](https://www.peterbe.com/plog/django-orm-optimization-story-on-selecting-the-least-possible)
+
