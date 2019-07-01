@@ -82,6 +82,114 @@ O comando criado pode ser rodado com
 python manage.py import_lives
 ```
 
+## ORM
+
+```
+lives = Live.objects.all()
+lives.count()
+
+lives_like = Live.objects.filter(like__lte=1000)
+lives_like.count()
+
+lives_python = Live.objects.filter(title__icontains='python')
+lives_python.count()
+
+lives_no_python = Live.objects.exclude(title__icontains='python')
+lives_no_python.count()
+
+Live.objects.filter(like__lte=1000).values('title', 'guest')
+Live.objects.filter(like__lte=1000).values_list('title', 'guest')
+Live.objects.filter(like__lte=1000).values_list('title', flat=True)
+```
+
+---
+
+```
+from django.db import connection
+
+lives = Live.objects.all()
+
+for live in lives:
+    print(live.guest)
+
+print(len(connection.queries))
+```
+
+---
+
+```
+from django.db import connection
+
+lives = Live.objects.select_related('guest').all()
+
+for live in lives:
+    print(live.guest)
+
+print(len(connection.queries))
+```
+
+---
+
+http://pythonclub.com.br/django-introducao-queries.html
+
+---
+
+### Inserindo dados
+
+```
+from django.db import connection
+
+
+lives = [
+    'Testes de unidade na prática',
+    'Melhorando testes de unidade',
+    'Testando o que está pronto',
+    'Autenticação de uma API Flask com testes',
+    'BDD com python e flask',
+    'Type hints e Anotações de funções',
+    'Django básico',
+    'Django parte 2',
+]
+
+for i, live in enumerate(lives):
+    Live.objects.create(title=live, number=i)
+
+print(len(connection.queries))
+```
+
+---
+
+```
+from django.db import connection
+
+
+lives = [
+    'Testes de unidade na prática',
+    'Melhorando testes de unidade',
+    'Testando o que está pronto',
+    'Autenticação de uma API Flask com testes',
+    'BDD com python e flask',
+    'Type hints e Anotações de funções',
+    'Django básico',
+    'Django parte 2',
+]
+
+aux = []
+for i, live in enumerate(lives):
+    obj = Live(title=live, number=i)
+    aux.append(obj)
+
+Live.objects.bulk_create(aux)
+
+print(len(connection.queries))
+```
+
+
+---
+
+Obs: Em bulk_create os signals do Django não serão chamados.
+
+
 ## Filtrando campos calculados
 
 ```
