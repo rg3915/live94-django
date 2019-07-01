@@ -89,3 +89,21 @@ res = [x.pk for x in Live.objects.all() if x.like_frequence < 0.2]
 len(res)
 ```
 
+## Links
+
+[Tutorial Django 2.2](http://pythonclub.com.br/tutorial-django-2.html)
+
+[Django doc oficial](https://www.djangoproject.com/)
+
+[diagrama 1](https://raw.githubusercontent.com/rg3915/tutoriais/master/django-basic/img/diagrama.png)
+
+[diagrama 2](https://raw.githubusercontent.com/rg3915/tutoriais/master/django-basic/img/mtv2.png)
+
+[env_gen.py](https://gist.github.com/rg3915/22626de522f5c045bc63acdb8fe67b24)
+
+[gist básico para criar os templates base.html e index.html](https://gist.github.com/rg3915/0144a2408ec54c4e8008999631c64a30)
+
+[CBV](https://ccbv.co.uk)
+
+[djangopackages](https://djangopackages.org/)
+
